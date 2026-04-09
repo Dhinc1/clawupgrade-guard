@@ -1,0 +1,14 @@
+{
+  "name": "claw_upgrade_guard",
+  "displayName": "ClawUpgrade Guard",
+  "version": "1.0.0",
+  "description": "Agent-driven OpenClaw upgrades with pre-flight checks, migration validation, and rollback guidance",
+  "author": "Dave Hughes",
+  "tags": ["upgrade", "maintenance", "safety", "validation"],
+  "requirements": {
+    "openclaw": ">=2026.4.0",
+    "commands": ["jq"]
+  },
+  "entrypoint": "SKILL.md",
+  "category": "system"
+}
