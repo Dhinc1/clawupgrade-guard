@@ -1,17 +1,32 @@
-# ClawUpgrade Guard
+# ClawUpgrade Guard 🛡️
 
-**Agent-driven OpenClaw upgrades with pre-flight checks, migration validation, and rollback guidance.**
+**Agent-driven OpenClaw upgrades with supervision, validation, and rollback.**
 
-## What It Does
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-%3E%3D2026.4.0-orange)](https://github.com/openclaw/openclaw)
 
-ClawUpgrade Guard teaches your OpenClaw agent to upgrade the system safely — not just running `npm update` and hoping for the best. It adds:
+> *"Your agent supervises the upgrade — not just executes it."*
 
-- **Pre-flight visibility** — Validates current state before touching anything
-- **Change explanations** — Interprets what `openclaw doctor --fix` changed and why
-- **Survival validation** — Verifies critical config (models, PARA paths, cron jobs) survived migration
-- **Human-readable diffs** — Shows before/after with context
-- **Rollback guidance** — Helps you recover if things break
-- **Agent-driven workflow** — Your agent walks you through it, explains decisions
+## The Problem
+
+Running `npm update -g openclaw && openclaw doctor --fix` is fast, but:
+
+- ❌ No visibility into what changed or why
+- ❌ Critical config can get stripped by migrations
+- ❌ No backup strategy (just one `.bak` file)
+- ❌ Silent failures leave your system broken
+- ❌ No guidance when things go wrong
+
+## The Solution
+
+ClawUpgrade Guard teaches your agent to **supervise** OpenClaw upgrades:
+
+✅ **Pre-flight visibility** — Validates current state before touching anything  
+✅ **Change explanations** — Interprets what `doctor --fix` changed and why  
+✅ **Survival validation** — Verifies critical config (models, PARA paths, cron jobs) survived  
+✅ **Timestamped backups** — Multiple snapshots, not just `.bak`  
+✅ **Rollback scripts** — One command to restore if things break  
+✅ **Agent-driven** — Your agent walks you through it, explains decisions
 
 ## Installation
 
@@ -20,16 +35,16 @@ ClawUpgrade Guard teaches your OpenClaw agent to upgrade the system safely — n
 ```bash
 # Clone to your OpenClaw skills directory
 cd ~/.openclaw/skills/
-git clone https://github.com/YOUR_USERNAME/clawupgrade-guard.git
+git clone https://github.com/Dhinc1/clawupgrade-guard.git claw_upgrade_guard
 
-# Or install via symbolic link
+# Or install via symbolic link if you cloned elsewhere
 ln -s ~/path/to/clawupgrade-guard ~/.openclaw/skills/claw_upgrade_guard
 ```
 
 ### Standalone (Without OpenClaw Agent)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/clawupgrade-guard.git
+git clone https://github.com/Dhinc1/clawupgrade-guard.git
 cd clawupgrade-guard
 chmod +x scripts/*.sh
 ./scripts/upgrade.sh
@@ -138,7 +153,27 @@ PRs welcome! Please follow the existing structure:
 
 MIT
 
+
 ## Credits
 
-Created by Dave Hughes (@maxbox)  
-Part of the OpenClaw ecosystem 🦞
+**Created by:** [Dave Hughes](https://github.com/Dhinc1)  
+**License:** MIT  
+**Part of:** OpenClaw ecosystem 🦞
+
+### Related Skills
+
+- **[Upgrade Guardian](https://github.com/example/upgrade-guardian)** — Pre-upgrade semantic analysis and risk detection (complementary skill)
+
+### Contributing
+
+Pull requests welcome! Areas for contribution:
+- Additional validation checks
+- Provider-specific config survival tests
+- Better diff interpretation heuristics
+- Integration with CI/CD pipelines
+
+Please open an issue before major changes.
+
+---
+
+**Made with ☕ and too many failed upgrades**
